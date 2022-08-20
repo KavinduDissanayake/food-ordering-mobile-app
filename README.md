@@ -1,1 +1,3 @@
-# food-ordering-mobile-app
+# Food-Ordering-mobile-app
+
+Installation
