@@ -179,75 +179,75 @@ class LoginFromWidget extends StatelessWidget {
           const Spacer(),
           GestureDetector(
             onTap: () {
-              Navigator.of(context)
-                  .pushReplacementNamed(ForgetPwScreen.routeName);
+
+
             },
             child: const Text("Forget your password?"),
           ),
           const Spacer(
             flex: 2,
           ),
-          const Text("or Login With"),
+         // const Text("or Login With"),
           const Spacer(),
-          SizedBox(
-            height: 50,
-            width: double.infinity,
-            child: ElevatedButton(
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(
-                  const Color(
-                    0xFF367FC0,
-                  ),
-                ),
-              ),
-              onPressed: () {},
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Image.asset(
-                    Helper.getAssetName(
-                      "fb.png",
-                      "virtual",
-                    ),
-                  ),
-                  const SizedBox(
-                    width: 30,
-                  ),
-                  const Text("Login with Facebook")
-                ],
-              ),
-            ),
-          ),
-          const Spacer(),
-          SizedBox(
-            height: 50,
-            width: double.infinity,
-            child: ElevatedButton(
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(
-                  const Color(
-                    0xFFDD4B39,
-                  ),
-                ),
-              ),
-              onPressed: () {},
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Image.asset(
-                    Helper.getAssetName(
-                      "google.png",
-                      "virtual",
-                    ),
-                  ),
-                  const SizedBox(
-                    width: 30,
-                  ),
-                  const Text("Login with Google")
-                ],
-              ),
-            ),
-          ),
+          // SizedBox(
+          //   height: 50,
+          //   width: double.infinity,
+          //   child: ElevatedButton(
+          //     style: ButtonStyle(
+          //       backgroundColor: MaterialStateProperty.all(
+          //         const Color(
+          //           0xFF367FC0,
+          //         ),
+          //       ),
+          //     ),
+          //     onPressed: () {},
+          //     child: Row(
+          //       mainAxisAlignment: MainAxisAlignment.center,
+          //       children: [
+          //         Image.asset(
+          //           Helper.getAssetName(
+          //             "fb.png",
+          //             "virtual",
+          //           ),
+          //         ),
+          //         const SizedBox(
+          //           width: 30,
+          //         ),
+          //         const Text("Login with Facebook")
+          //       ],
+          //     ),
+          //   ),
+          // ),
+          // const Spacer(),
+          // SizedBox(
+          //   height: 50,
+          //   width: double.infinity,
+          //   child: ElevatedButton(
+          //     style: ButtonStyle(
+          //       backgroundColor: MaterialStateProperty.all(
+          //         const Color(
+          //           0xFFDD4B39,
+          //         ),
+          //       ),
+          //     ),
+          //     onPressed: () {},
+          //     child: Row(
+          //       mainAxisAlignment: MainAxisAlignment.center,
+          //       children: [
+          //         Image.asset(
+          //           Helper.getAssetName(
+          //             "google.png",
+          //             "virtual",
+          //           ),
+          //         ),
+          //         const SizedBox(
+          //           width: 30,
+          //         ),
+          //         const Text("Login with Google")
+          //       ],
+          //     ),
+          //   ),
+          // ),
           const Spacer(
             flex: 4,
           ),
@@ -255,7 +255,10 @@ class LoginFromWidget extends StatelessWidget {
             onTap: () {
               // Navigator.of(context)
               //     .pushReplacementNamed(SignUpScreen.routeName);
-              Get.to(const SignUpScreen());
+
+
+              Get.off(const SignUpScreen());
+
             },
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
