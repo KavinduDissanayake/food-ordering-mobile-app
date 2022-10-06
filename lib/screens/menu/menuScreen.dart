@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:foodapp/const/colors.dart';
 import 'package:foodapp/screens/dessertScreen.dart';
+import 'package:foodapp/screens/login/more/menu_screen_vm.dart';
 import 'package:foodapp/utils/helper.dart';
 import 'package:foodapp/widgets/searchBar.dart';
 import 'package:get/get.dart';
@@ -8,10 +9,18 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:ionicons/ionicons.dart';
 // import 'package:foodapp/widgets/customNavBar.dart';
 
-class MenuScreen extends StatelessWidget {
-  static const routeName = "/menuScreen";
 
+class MenuScreen extends StatefulWidget {
   const MenuScreen({Key? key}) : super(key: key);
+  static const routeName = "/menuScreen";
+  @override
+  State<StatefulWidget> createState() {
+    return MenuScreenState();
+  }
+}
+class MenuScreenState extends State<MenuScreen> {
+
+
 
   @override
   Widget build(BuildContext context) {

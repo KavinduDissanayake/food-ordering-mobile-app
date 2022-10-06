@@ -2,16 +2,35 @@ import 'package:flutter/material.dart';
 import 'package:foodapp/const/colors.dart';
 import 'package:foodapp/screens/aboutScreen.dart';
 import 'package:foodapp/screens/inboxScreen.dart';
+import 'package:foodapp/screens/login/more/menu_screen_vm.dart';
 import 'package:foodapp/screens/myOrderScreen.dart';
 import 'package:foodapp/screens/notificationScreen.dart';
 import 'package:foodapp/screens/paymentScreen.dart';
 import 'package:foodapp/utils/helper.dart';
+import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 // import 'package:foodapp/widgets/customNavBar.dart';
-
-class MoreScreen extends StatelessWidget {
+class MoreScreen extends StatefulWidget {
+  const MoreScreen({Key? key}) : super(key: key);
   static const routeName = "/moreScreen";
+
+  @override
+  State<StatefulWidget> createState() {
+    return MoreScreenState();
+  }
+}
+class MoreScreenState extends State<MoreScreen> {
+
+  //viewModel
+  final MoreScreenVM vm = Get.put(MoreScreenVM());
+
+  @override
+  void dispose() {
+    Get.delete<MoreScreenVM>();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -114,7 +133,10 @@ class MoreScreen extends StatelessWidget {
                     height: 50,
                     width: double.infinity,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+
+                        vm.logout();
+                      },
                       child: Text("Log out"),
                     ),
                   )

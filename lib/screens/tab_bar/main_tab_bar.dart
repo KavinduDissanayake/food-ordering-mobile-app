@@ -1,8 +1,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:foodapp/screens/homeScreen.dart';
-import 'package:foodapp/screens/menuScreen.dart';
-import 'package:foodapp/screens/moreScreen.dart';
+import 'package:foodapp/screens/menu/menuScreen.dart';
+import 'package:foodapp/screens/login/more/moreScreen.dart';
 import 'package:foodapp/screens/offerScreen.dart';
 import 'package:foodapp/screens/profileScreen.dart';
 import 'package:ionicons/ionicons.dart';
@@ -22,7 +22,6 @@ class _MainTabBarState extends State<MainTabBar> {
   int _selectedIndex = 0;
 
   final List<Widget> _widgetOptions = <Widget>[
-     ProfileScreen(),
      HomeScreen(),
      OfferScreen(),
      ProfileScreen(),

@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:get/get.dart';
@@ -24,32 +25,31 @@ import 'api_status.dart';
 class UserServices {
   //login
   static Future<Object> authentication( String textEmail, String textPassword) async {
-    String auth = AppConfig.baseUrl + "/customer/login";
+    String auth = "${AppConfig.baseUrl}/customer/login";
 
     Map<String, String> requestHeaders = {
       'Accept': 'application/json',
+      "Content-Type": "application/json",
       'x-api-key': AppConfig.apiKey,
     };
 
-    String deviceId = await DeviceUtils.getId();
-    String deviceName =  DeviceUtils.deviceName;
+    // String deviceId = await DeviceUtils.getId();
+    // String deviceName =  DeviceUtils.deviceName;
 
 
-    print("device id : $deviceId");
-    print("device fcm token  : ${SharedPrefs.getFcmToken()}");
+    // print("device id : $deviceId");
+    // String body = json.encode({
+    //   "email": "kavindu@gmail.com",
+    //   "password":"12345678"
+    // });
+    var body = jsonEncode({ 'email': 'kavindu@gmail.com','password': '12345678' });
 
     try {
       var response = await http.post(Uri.parse(auth),
-          body: {
-            "email": textEmail,
-            "password": textPassword,
-            "device_id": deviceId,
-            "device_push_token": SharedPrefs.getFcmToken(),
-            "device_name":  deviceName,
-          },
+          body:  body,
           headers: requestHeaders);
 
-      // print(response);
+      print(response);
 
       if (Constants.success == response.statusCode) {
 
@@ -63,6 +63,7 @@ class UserServices {
             errorResponse: serverResponseFromJson(response.body));
       }
     } on HttpException {
+
       return Failure(
           code: Constants.noInternt, errorResponse: 'No Internet Connection');
     } on SocketException {

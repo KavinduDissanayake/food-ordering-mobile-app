@@ -149,28 +149,42 @@ class LoginFromWidget extends StatelessWidget {
           const Spacer(),
           const Text('Add your details to login'),
           const Spacer(),
-          CustomTextInputField(
-            isValidation: true,
-            hintText: 'Email',
-            errorText: 'Incorrect email address format',
-            textInputAction: TextInputAction.next,
-            onChanged: (val) {},
-          ),
+
+          Obx(()=>(
+              CustomTextInputField(
+                isValidation:viewModel.validateEmail.value,
+                hintText: 'Email',
+                errorText: 'Incorrect email address format',
+                textInputAction: TextInputAction.next,
+                onChanged: (val){
+                  viewModel.emailValidation(val);
+                },
+              )
+          )),
+
           const Spacer(),
-          CustomPasswordInputField(
-            isValidation: false,
-            hintText: 'Password',
-            errorText: 'Incorrect password content',
-            textInputAction: TextInputAction.next,
-            onChanged: (val) {},
-          ),
+          Obx(()=>(
+              CustomPasswordInputField(
+                isValidation:viewModel.validatePassword.value,
+                hintText: 'Password',
+                errorText: 'Incorrect password content',
+                textInputAction: TextInputAction.done,
+                onChanged: (val){
+                  viewModel.passwordValidation(val);
+                },
+              )
+          )),
           const Spacer(),
           SizedBox(
             height: 50,
             width: double.infinity,
             child: ElevatedButton(
               onPressed: () {
-                viewModel.loginUser();
+
+               // if(viewModel.validationField()){
+                  viewModel.loginUser();
+              //  }
+
               },
               child: const Text("Login"),
             ),

@@ -1,28 +1,32 @@
 // To parse this JSON data, do
 //
-//     final authResponse = authResponseFromJson(jsonString);
+//     final authResponseFromJson = authResponseFromJsonFromJson(jsonString);
 
 import 'dart:convert';
 
-AuthResponse authResponseFromJson(String str) => AuthResponse.fromJson(json.decode(str));
+AuthResponseFromJson authResponseFromJson(String str) => AuthResponseFromJson.fromJson(json.decode(str));
 
-String authResponseToJson(AuthResponse data) => json.encode(data.toJson());
+String authResponseFromJsonToJson(AuthResponseFromJson data) => json.encode(data.toJson());
 
-class AuthResponse {
-  AuthResponse({
+class AuthResponseFromJson {
+  AuthResponseFromJson({
+    this.code,
     this.message,
     this.payload,
   });
 
+  int? code;
   String? message;
   User? payload;
 
-  factory AuthResponse.fromJson(Map<String, dynamic> json) => AuthResponse(
+  factory AuthResponseFromJson.fromJson(Map<String, dynamic> json) => AuthResponseFromJson(
+    code: json["code"],
     message: json["message"],
-    payload: User .fromJson(json["payload"]),
+    payload: User.fromJson(json["payload"]),
   );
 
   Map<String, dynamic> toJson() => {
+    "code": code,
     "message": message,
     "payload": payload!.toJson(),
   };
@@ -31,72 +35,83 @@ class AuthResponse {
 class User {
   User({
     this.id,
+    this.email,
     this.firstName,
     this.lastName,
-    this.email,
-    this.facebookUrl,
-    this.instagramUrl,
-    this.twitterUrl,
-    this.lastSeen,
-    this.isOnline,
-    this.phone,
-    this.roles,
     this.avatarUrl,
+    this.address,
+    this.wishlist,
+    this.orders,
+    this.cart,
+    this.createdAt,
+    this.updatedAt,
     this.accessToken,
   });
 
-  int? id;
-  String? firstName;
-  String?  lastName;
+  String? id;
   String? email;
-  String? facebookUrl;
-  String? instagramUrl;
-  String? twitterUrl;
-
-  String? lastSeen;
-  bool? isOnline;
-  String? phone;
-  String? roles;
+  String? firstName;
+  String? lastName;
   String? avatarUrl;
+  String? address;
+  List<String>? wishlist;
+  List<String>? orders;
+  List<Cart>? cart;
+  String? createdAt;
+  String? updatedAt;
   String? accessToken;
 
-
-   String getFullName(){
-    return "$firstName  $lastName ";
-  }
-
   factory User.fromJson(Map<String, dynamic> json) => User(
-    id: json["id"] ?? 0,
-    firstName: json["name"] ?? "N/A",
-    lastName: json["last_name"] ?? "N/A",
-    email: json["email"] ?? "N/A",
-    facebookUrl: json["facebook_url"] ?? "N/A",
-    instagramUrl: json["instagram_url"] ?? "N/A",
-    twitterUrl: json["twitter_url"] ?? "N/A",
-
-    lastSeen: json["last_seen"] ?? "",
-    isOnline: json["is_online"] ??  false,
-    phone: json["phone"] ?? "N/A",
-    roles: json["role"] ?? "N/A",
-    avatarUrl: json["avatar_url"] ?? "N/A",
-    accessToken: json["access_token"] ?? "N/A",
+    id: json["_id"],
+    email: json["email"],
+    firstName: json["firstName"],
+    lastName: json["lastName"],
+    avatarUrl: json["avatarUrl"],
+    address: json["address"],
+    wishlist: List<String>.from(json["wishlist"].map((x) => x)),
+    orders: List<String>.from(json["orders"].map((x) => x)),
+    cart: List<Cart>.from(json["cart"].map((x) => Cart.fromJson(x))),
+    createdAt:json["createdAt"],
+    updatedAt: json["updatedAt"],
+    accessToken: json["accessToken"],
   );
 
   Map<String, dynamic> toJson() => {
-    "id": id,
-    "name": firstName,
-    "last_name": lastName,
+    "_id": id,
     "email": email,
-    "facebook_url": facebookUrl ?? "N/A",
-    "instagram_url": instagramUrl ?? "N/A",
-    "twitter_url": twitterUrl ?? "N/A",
-    "last_seen": lastSeen,
-    "is_online": isOnline,
-    "phone": phone,
-    "roles": roles,
-    "avatar_url": avatarUrl,
-    "access_token": accessToken,
+    "firstName": firstName,
+    "lastName": lastName,
+    "avatarUrl": avatarUrl,
+    "address": address,
+    "wishlist": List<dynamic>.from(wishlist!.map((x) => x)),
+    "orders": List<dynamic>.from(orders!.map((x) => x)),
+    "cart": List<dynamic>.from(cart!.map((x) => x.toJson())),
+    "createdAt": createdAt,
+    "updatedAt": updatedAt,
+    "accessToken": accessToken,
   };
+}
 
+class Cart {
+  Cart({
+    this.product,
+    this.unit,
+    this.id,
+  });
 
+  String? product;
+  int? unit;
+  String? id;
+
+  factory Cart.fromJson(Map<String, dynamic> json) => Cart(
+    product: json["product"],
+    unit: json["unit"],
+    id: json["_id"],
+  );
+
+  Map<String, dynamic> toJson() => {
+    "product": product,
+    "unit": unit,
+    "_id": id,
+  };
 }

@@ -10,7 +10,7 @@ class AppConfig {
   static String get baseUrl {
     switch (appFlavor) {
       case Flavor.DEVELOPMENT:
-        return 'http://localhost:8000';
+        return 'http://192.168.43.97:8000';
       case Flavor.PRODUCTION:
         return '';
       case Flavor.STAGING:

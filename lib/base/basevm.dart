@@ -11,7 +11,11 @@ import 'package:get/get_core/src/get_main.dart';
 
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 
+import '../const/constants.dart';
+import '../content_view.dart';
 import '../db/localuser.dart';
+import '../network/apis/api_status.dart';
+import '../network/models/server_response_model.dart';
 import '../utils/develpoer/dev_log.dart';
 import '../utils/dialog_helper.dart';
 import 'alerts.dart';
@@ -24,47 +28,47 @@ class BaseVM extends GetxController with Validations,LocalUser,Alerts{
 //error handle---------------------------------
 
 //
-//   errorAlertHandler(Failure response,{String errorTile = "Loading failed",bool isLoggerOnly = false}) {
-//     //Error message
-//     String errorMessage = "";
-//     if (response.code == Constants.unProcessable) {
-//       String? _errorResponse =
-//           (response.errorResponse as ServerResponse).message;
-//       errorMessage = _errorResponse ?? "";
-//     } else {
-//       errorMessage = response.errorResponse as String;
-//     }
-//
-//     logger.e(errorMessage);
-//     if(!isLoggerOnly){
-//       showErrorMessage(errorTile,errorMessage);
-//     }
-//   }
-//
-//
-//
-// //indicator-----------------------------------
-//   showIndicator(){
-//     DialogHelper.shared.showLoading();
-//   }
-//
-//   hideIndicator(){
-//     DialogHelper.shared.hideLoading();
-//   }
+  errorAlertHandler(Failure response,{String errorTile = "Loading failed",bool isLoggerOnly = false}) {
+    //Error message
+    String errorMessage = "";
+    if (response.code == Constants.unProcessable) {
+      String? _errorResponse =
+          (response.errorResponse as ServerResponse).message;
+      errorMessage = _errorResponse ?? "";
+    } else {
+      errorMessage = response.errorResponse as String;
+    }
+
+    logger.e(errorMessage);
+    if(!isLoggerOnly){
+      showErrorMessage(errorTile,errorMessage);
+    }
+  }
 //
 //
-//   //messages-----------------------------------
-//   showErrorMessage(String errorTitle,String errorMessage){
-//     DialogHelper.shared.errorSnackBar(errorTitle, errorMessage);
-//   }
 //
-//   showSuccessMessage(String successTitle,String successMessage){
-//     DialogHelper.shared.successSnackBar(successTitle, successMessage);
-//   }
-//
-//   showWarningMessage(String warningTitle,String warningMessage){
-//     DialogHelper.shared.warningSnackBar(warningTitle, warningMessage);
-//   }
+//indicator-----------------------------------
+  showIndicator(){
+    DialogHelper.shared.showLoading();
+  }
+
+  hideIndicator(){
+    DialogHelper.shared.hideLoading();
+  }
+
+
+  //messages-----------------------------------
+  showErrorMessage(String errorTitle,String errorMessage){
+    DialogHelper.shared.errorSnackBar(errorTitle, errorMessage);
+  }
+
+  showSuccessMessage(String successTitle,String successMessage){
+    DialogHelper.shared.successSnackBar(successTitle, successMessage);
+  }
+
+  showWarningMessage(String warningTitle,String warningMessage){
+    DialogHelper.shared.warningSnackBar(warningTitle, warningMessage);
+  }
 //
 //
   showErrorLogger({required String error}){
@@ -77,36 +81,21 @@ class BaseVM extends GetxController with Validations,LocalUser,Alerts{
     logger.i(info);
   }
 // //common api and  methods-----------------------------------
-//   logOutUser() async {
+  logOutUser() async {
+
+    //call logout api
+    showSuccessMessage("Log out", "Success !");
+    removeLocalUser();
+    navigateToContentView();
+  }
 //
-//     //call logout api
-//     var response = await UserServices.logout();
-//     showIndicator();
-//
-//     if (response is Success) {
-//       String? _successResponse = (response.response as ServerResponse).message;
-//       hideIndicator();
-//       showSuccessMessage("Log out",_successResponse ?? "");
-//       removeLocalUser();
-//       navigateToContentView();
-//     }
-//
-//     if (response is Failure) {
-//       hideIndicator();
-//       errorAlertHandler(response,errorTile:'Log out failed');
-//       removeLocalUser();
-//       navigateToContentView();
-//     }
-//
-//   }
-//
-//   navigateToContentView(){
-//     //navigation
-//     Timer(const Duration(seconds: 4), () {
-//       Get.offAll(const ContentView());
-//     });
-//   }
-//
+  navigateToContentView(){
+    //navigation
+    Timer(const Duration(seconds: 4), () {
+      Get.offAll(const ContentView());
+    });
+  }
+
 //   sendMessageMessageNotification(String message, String type, String contactUserID) async {
 //
 //     var response = await NotificationServices.sendWithMessage(
