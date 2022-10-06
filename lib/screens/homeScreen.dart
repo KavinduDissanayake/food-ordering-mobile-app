@@ -4,6 +4,7 @@ import '../const/colors.dart';
 import '../utils/helper.dart';
 import '../screens/individualItem.dart';
 import '../widgets/searchBar.dart';
+import 'package:foodapp/widgets/customNavBar.dart';
 
 class HomeScreen extends StatelessWidget {
   static const routeName = "/homeScreen";
@@ -278,6 +279,11 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
             ),
+          ),
+          Positioned(
+            bottom: 0,
+            left: 0,
+            child: CustomNavBar(),
           ),
         ],
       ),

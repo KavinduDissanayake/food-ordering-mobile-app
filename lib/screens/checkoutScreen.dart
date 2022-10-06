@@ -4,6 +4,7 @@ import 'package:foodapp/screens/changeAddressScreen.dart';
 // import 'package:foodapp/screens/homeScreen.dart';
 import 'package:foodapp/utils/helper.dart';
 import 'package:foodapp/widgets/customTextInput.dart';
+import 'package:foodapp/widgets/customNavBar.dart';
 
 class CheckoutScreen extends StatelessWidget {
   static const routeName = "/checkoutScreen";
@@ -557,6 +558,11 @@ class CheckoutScreen extends StatelessWidget {
                 )
               ],
             ),
+          ),
+          Positioned(
+            bottom: 0,
+            left: 0,
+            child: CustomNavBar(),
           ),
         ],
       ),

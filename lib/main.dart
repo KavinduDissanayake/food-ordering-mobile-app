@@ -1,7 +1,7 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodapp/screens/login/loginScreen.dart';
+import 'package:foodapp/screens/moreScreen.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 
 import './const/colors.dart';
@@ -19,10 +19,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     GetMaterialApp materialApp = GetMaterialApp(
-      theme:Themes.light,
+      theme: Themes.light,
       debugShowCheckedModeBanner: true,
       title: 'Flutter Demo',
-      home: LoginScreen(),
+      home: MoreScreen(),
       //  home:UserTabScreen(),
     );
 
@@ -35,8 +35,5 @@ class MyApp extends StatelessWidget {
         });
 
     return screenUtilInit;
-
-
-
   }
 }

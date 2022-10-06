@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:foodapp/const/colors.dart';
 import 'package:foodapp/screens/checkoutScreen.dart';
 import 'package:foodapp/utils/helper.dart';
+import 'package:foodapp/widgets/customNavBar.dart';
 
 class MyOrderScreen extends StatelessWidget {
   static const routeName = "/myOrderScreen";
@@ -282,6 +283,11 @@ class MyOrderScreen extends StatelessWidget {
                 )
               ],
             ),
+          ),
+          Positioned(
+            bottom: 0,
+            left: 0,
+            child: CustomNavBar(),
           ),
         ],
       ),

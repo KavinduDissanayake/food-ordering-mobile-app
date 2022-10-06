@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:foodapp/const/colors.dart';
 import 'package:foodapp/utils/helper.dart';
+import 'package:foodapp/widgets/customNavBar.dart';
 
 class AboutScreen extends StatelessWidget {
   static const routeName = "/aboutScreen";
-
-  const AboutScreen({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,7 +21,7 @@ class AboutScreen extends StatelessWidget {
                         onPressed: () {
                           Navigator.of(context).pop();
                         },
-                        icon: const Icon(
+                        icon: Icon(
                           Icons.arrow_back_ios_rounded,
                         ),
                       ),
@@ -37,11 +36,11 @@ class AboutScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const SizedBox(
+                  SizedBox(
                     height: 50,
                   ),
                   Column(
-                    children: const [
+                    children: [
                       AboutCard(),
                       SizedBox(
                         height: 20,
@@ -57,6 +56,13 @@ class AboutScreen extends StatelessWidget {
               ),
             ),
           ),
+          Positioned(
+            bottom: 0,
+            left: 0,
+            child: CustomNavBar(
+              menu: true,
+            ),
+          ),
         ],
       ),
     );
@@ -64,7 +70,9 @@ class AboutScreen extends StatelessWidget {
 }
 
 class AboutCard extends StatelessWidget {
-  const AboutCard({Key? key}) : super(key: key);
+  const AboutCard({
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -72,7 +80,7 @@ class AboutCard extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const CircleAvatar(
+          CircleAvatar(
             radius: 5,
             backgroundColor: AppColor.orange,
           ),

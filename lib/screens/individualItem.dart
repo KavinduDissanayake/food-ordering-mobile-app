@@ -1,7 +1,8 @@
-import 'package:clip_shadow/clip_shadow.dart';
+// import 'package:clip_shadow/clip_shadow.dart';
 import 'package:flutter/material.dart';
 import 'package:foodapp/const/colors.dart';
 import 'package:foodapp/utils/helper.dart';
+import 'package:foodapp/widgets/customNavBar.dart';
 
 class IndividualItem extends StatelessWidget {
   static const routeName = "/individualScreen";
@@ -564,27 +565,29 @@ class IndividualItem extends StatelessWidget {
                                   ),
                                   child: Align(
                                     alignment: Alignment.topRight,
-                                    child: ClipShadow(
-                                      clipper: CustomTriangle(),
-                                      boxShadow: [
-                                        BoxShadow(
-                                          color: AppColor.placeholder,
-                                          offset: Offset(0, 5),
-                                          blurRadius: 5,
-                                        ),
-                                      ],
-                                      child: Container(
-                                        width: 60,
-                                        height: 60,
-                                        color: Colors.white,
-                                        child: Image.asset(
-                                          Helper.getAssetName(
-                                            "fav_filled.png",
-                                            "virtual",
-                                          ),
+                                    child:
+                                        // ClipShadow(
+                                        //   clipper: CustomTriangle(),
+                                        //   boxShadow: [
+                                        //     BoxShadow(
+                                        //       color: AppColor.placeholder,
+                                        //       offset: Offset(0, 5),
+                                        //       blurRadius: 5,
+                                        //     ),
+                                        //   ],
+                                        //   child:
+                                        Container(
+                                      width: 60,
+                                      height: 60,
+                                      color: Colors.white,
+                                      child: Image.asset(
+                                        Helper.getAssetName(
+                                          "fav_filled.png",
+                                          "virtual",
                                         ),
                                       ),
                                     ),
+                                    // ),
                                   ),
                                 )
                               ],
@@ -600,6 +603,11 @@ class IndividualItem extends StatelessWidget {
                 ),
               ],
             ),
+          ),
+          Positioned(
+            bottom: 0,
+            left: 0,
+            child: CustomNavBar(),
           ),
         ],
       ),

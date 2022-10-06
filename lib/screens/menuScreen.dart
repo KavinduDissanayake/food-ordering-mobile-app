@@ -3,6 +3,7 @@ import 'package:foodapp/const/colors.dart';
 import 'package:foodapp/screens/dessertScreen.dart';
 import 'package:foodapp/utils/helper.dart';
 import 'package:foodapp/widgets/searchBar.dart';
+import 'package:foodapp/widgets/customNavBar.dart';
 
 class MenuScreen extends StatelessWidget {
   static const routeName = "/menuScreen";
@@ -148,6 +149,13 @@ class MenuScreen extends StatelessWidget {
               ],
             ),
           ),
+          Positioned(
+            bottom: 0,
+            left: 0,
+            child: CustomNavBar(
+              menu: true,
+            ),
+          )
         ],
       ),
     );

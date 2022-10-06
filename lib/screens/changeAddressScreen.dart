@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:foodapp/const/colors.dart';
 import 'package:foodapp/utils/helper.dart';
 import 'package:foodapp/widgets/searchBar.dart';
+import 'package:foodapp/widgets/customNavBar.dart';
 
 class ChangeAddressScreen extends StatelessWidget {
   static const routeName = "/changeAddressScreen";
@@ -161,6 +162,11 @@ class ChangeAddressScreen extends StatelessWidget {
                 )
               ],
             ),
+          ),
+          Positioned(
+            bottom: 0,
+            left: 0,
+            child: CustomNavBar(),
           ),
         ],
       ),
