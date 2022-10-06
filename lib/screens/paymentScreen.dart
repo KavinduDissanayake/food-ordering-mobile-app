@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:foodapp/const/colors.dart';
 import 'package:foodapp/utils/helper.dart';
 import 'package:foodapp/widgets/customTextInput.dart';
-import 'package:foodapp/widgets/customNavBar.dart';
+// import 'package:foodapp/widgets/customNavBar.dart';
 
 class PaymentScreen extends StatelessWidget {
   static const routeName = "/paymentScreen";
@@ -17,7 +17,7 @@ class PaymentScreen extends StatelessWidget {
             child: Column(
               children: [
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 20.0,vertical: 20),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -337,11 +337,11 @@ class PaymentScreen extends StatelessWidget {
               ],
             ),
           ),
-          Positioned(
-            bottom: 0,
-            left: 0,
-            child: CustomNavBar(),
-          ),
+          // Positioned(
+          //   bottom: 0,
+          //   left: 0,
+          //   child: CustomNavBar(),
+          // ),
         ],
       ),
     );

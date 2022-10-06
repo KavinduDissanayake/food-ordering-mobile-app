@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:foodapp/const/colors.dart';
 import 'package:foodapp/utils/helper.dart';
-import 'package:foodapp/widgets/customNavBar.dart';
+import 'package:foodapp/widgets/default_place_holder.dart';
+// import 'package:foodapp/widgets/customNavBar.dart';
 
 class ProfileScreen extends StatelessWidget {
   static const routeName = "/profileScreen";
@@ -16,7 +17,7 @@ class ProfileScreen extends StatelessWidget {
               width: Helper.getScreenWidth(context),
               child: SingleChildScrollView(
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 20.0,   vertical: 20),
                   child: Column(
                     children: [
                       Row(
@@ -37,25 +38,34 @@ class ProfileScreen extends StatelessWidget {
                       ClipOval(
                         child: Stack(
                           children: [
-                            Container(
-                              height: 80,
-                              width: 80,
-                              child: Image.asset(
-                                Helper.getAssetName(
-                                  "user.jpg",
-                                  "real",
-                                ),
-                                fit: BoxFit.cover,
-                              ),
-                            ),
+                            DefaultImageShowWidget(width:  90, height: 90, avatarUrl: "https://ui-avatars.com/api/?name=Kavindu+Dissanayke", radius: 10),
+                           // Default
+                           //  Container(
+                           //    height: 80,
+                           //    width: 80,
+                           //    child: Image.asset(
+                           //      Helper.getAssetName(
+                           //        "user.jpg",
+                           //        "real",
+                           //      ),
+                           //      fit: BoxFit.cover,
+                           //    ),
+                           //  ),
                             Positioned(
+                              left: 10,
                               bottom: 0,
+                              right: 10,
                               child: Container(
                                 height: 20,
                                 width: 80,
                                 color: Colors.black.withOpacity(0.3),
-                                child: Image.asset(Helper.getAssetName(
-                                    "camera.png", "virtual")),
+                                child: Row(
+                                  children: [
+                                    Spacer(),
+                                      Icon(Icons.camera_alt_outlined,size: 16,),
+                                    Spacer(),
+                                  ],
+                                ),
                               ),
                             )
                           ],
@@ -83,15 +93,15 @@ class ProfileScreen extends StatelessWidget {
                         height: 10,
                       ),
                       Text(
-                        "Hi there Emilia!",
+                        "Hi Kavindu Dissanayake!",
                         style: Helper.getTheme(context).headline4?.copyWith(
                               color: AppColor.primary,
                             ),
                       ),
-                      SizedBox(
-                        height: 5,
-                      ),
-                      Text("Sign Out"),
+                      // SizedBox(
+                      //   height: 5,
+                      // ),
+                    //  Text("Sign Out"),
                       SizedBox(
                         height: 40,
                       ),
@@ -153,11 +163,11 @@ class ProfileScreen extends StatelessWidget {
               ),
             ),
           ),
-          Positioned(
-            bottom: 0,
-            left: 0,
-            child: CustomNavBar(),
-          ),
+          // Positioned(
+          //   bottom: 0,
+          //   left: 0,
+          //   child: CustomNavBar(),
+          // ),
         ],
       ),
     );

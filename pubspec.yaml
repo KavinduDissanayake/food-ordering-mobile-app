@@ -14,10 +14,6 @@ dependencies:
   flutter:
     sdk: flutter
 
-
-
-  # clip_shadow: ^0.2.1
-
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
@@ -31,6 +27,16 @@ dependencies:
   adaptive_dialog: ^1.6.4+1
   #debug
   logger: ^1.1.0
+  #bottom Sheet
+  modal_bottom_sheet: ^2.1.2
+  cached_network_image: any
+  flutter_svg: ^1.1.0
+  #device
+  device_info: ^2.0.3
+  #local database
+  get_storage: ^2.0.3
+  shared_preferences: ^2.0.15
+
 
 
 dev_dependencies:
@@ -133,6 +139,7 @@ flutter:
     - assets/images/virtual/vector3.png
     - assets/images/virtual/vector4.png
     - assets/images/background/login_web_back.jpg
+    - assets/images/
   # example:
   fonts:
     - family: Metropolis

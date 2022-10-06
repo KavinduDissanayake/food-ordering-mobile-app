@@ -4,7 +4,6 @@ import '../const/colors.dart';
 import '../utils/helper.dart';
 import '../screens/individualItem.dart';
 import '../widgets/searchBar.dart';
-import 'package:foodapp/widgets/customNavBar.dart';
 
 class HomeScreen extends StatelessWidget {
   static const routeName = "/homeScreen";
@@ -29,8 +28,8 @@ class HomeScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "Good morning Akila!",
-                          style: Helper.getTheme(context).headline5,
+                          "Good morning Kavi!",
+                          style: Helper.getTheme(context).headline6,
                         ),
                         Image.asset(Helper.getAssetName("cart.png", "virtual"))
                       ],
@@ -280,11 +279,11 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
           ),
-          Positioned(
-            bottom: 0,
-            left: 0,
-            child: CustomNavBar(),
-          ),
+          // Positioned(
+          //   bottom: 0,
+          //   left: 0,
+          //   child: CustomNavBar(),
+          // ),
         ],
       ),
     );

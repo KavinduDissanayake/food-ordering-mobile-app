@@ -14,6 +14,7 @@ import 'login_screen_vm.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
+  static const routeName = "/loginScreen";
 
   @override
   State<StatefulWidget> createState() {
@@ -22,8 +23,6 @@ class LoginScreen extends StatefulWidget {
 }
 
 class LoginScreenState extends State<LoginScreen> {
-  static const routeName = "/loginScreen";
-
   //viewModel
   final LoginScreenVM vm = Get.put(LoginScreenVM());
 

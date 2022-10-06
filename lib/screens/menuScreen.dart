@@ -3,15 +3,40 @@ import 'package:foodapp/const/colors.dart';
 import 'package:foodapp/screens/dessertScreen.dart';
 import 'package:foodapp/utils/helper.dart';
 import 'package:foodapp/widgets/searchBar.dart';
-import 'package:foodapp/widgets/customNavBar.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:ionicons/ionicons.dart';
+// import 'package:foodapp/widgets/customNavBar.dart';
 
 class MenuScreen extends StatelessWidget {
   static const routeName = "/menuScreen";
+
   const MenuScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        automaticallyImplyLeading: false,
+        actions: [
+          IconButton(
+            icon: Container(
+              width: 30,
+              height: 30,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Colors.red,
+              ),
+              child:Icon( Icons.close),
+            ),
+            color: Colors.white,
+            onPressed: () {
+              Get.back();
+            },
+          )
+        ],
+      ),
       body: Stack(
         children: [
           SafeArea(
@@ -20,6 +45,7 @@ class MenuScreen extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.symmetric(
                     horizontal: 20,
+                    vertical: 20
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -28,9 +54,7 @@ class MenuScreen extends StatelessWidget {
                         "Menu",
                         style: Helper.getTheme(context).headline5,
                       ),
-                      Image.asset(
-                        Helper.getAssetName("cart.png", "virtual"),
-                      )
+
                     ],
                   ),
                 ),
@@ -149,13 +173,13 @@ class MenuScreen extends StatelessWidget {
               ],
             ),
           ),
-          Positioned(
-            bottom: 0,
-            left: 0,
-            child: CustomNavBar(
-              menu: true,
-            ),
-          )
+          // Positioned(
+          //   bottom: 0,
+          //   left: 0,
+          //   child: CustomNavBar(
+          //     menu: true,
+          //   ),
+          // )
         ],
       ),
     );

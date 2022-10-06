@@ -6,7 +6,9 @@ import 'package:foodapp/screens/myOrderScreen.dart';
 import 'package:foodapp/screens/notificationScreen.dart';
 import 'package:foodapp/screens/paymentScreen.dart';
 import 'package:foodapp/utils/helper.dart';
-import 'package:foodapp/widgets/customNavBar.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/get_navigation.dart';
+// import 'package:foodapp/widgets/customNavBar.dart';
 
 class MoreScreen extends StatelessWidget {
   static const routeName = "/moreScreen";
@@ -19,7 +21,7 @@ class MoreScreen extends StatelessWidget {
             child: Container(
               height: Helper.getScreenHeight(context),
               width: Helper.getScreenWidth(context),
-              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              padding: const EdgeInsets.symmetric(horizontal: 20.0,   vertical: 20),
               child: SingleChildScrollView(
                 child: Column(children: [
                   Row(
@@ -43,7 +45,8 @@ class MoreScreen extends StatelessWidget {
                     ),
                     name: "Payment Details",
                     handler: () {
-                      Navigator.of(context).pushNamed(PaymentScreen.routeName);
+
+                    Get.to(const PaymentScreen());
                     },
                   ),
                   SizedBox(
@@ -55,7 +58,9 @@ class MoreScreen extends StatelessWidget {
                     ),
                     name: "My Orders",
                     handler: () {
-                      Navigator.of(context).pushNamed(MyOrderScreen.routeName);
+
+                      Get.to( MyOrderScreen());
+                     // Navigator.of(context).pushNamed(MyOrderScreen.routeName);
                     },
                   ),
                   SizedBox(
@@ -68,8 +73,8 @@ class MoreScreen extends StatelessWidget {
                     name: "Notifications",
                     isNoti: true,
                     handler: () {
-                      Navigator.of(context)
-                          .pushNamed(NotificationScreen.routeName);
+                      Get.to(const NotificationScreen());
+                         // .pushNamed(NotificationScreen.routeName);
                     },
                   ),
                   SizedBox(
@@ -81,7 +86,9 @@ class MoreScreen extends StatelessWidget {
                     ),
                     name: "Inbox",
                     handler: () {
-                      Navigator.of(context).pushNamed(InboxScreen.routeName);
+
+                      Get.to(const InboxScreen());
+                      //Navigator.of(context).pushNamed(InboxScreen.routeName);
                     },
                   ),
                   SizedBox(
@@ -93,23 +100,35 @@ class MoreScreen extends StatelessWidget {
                     ),
                     name: "About Us",
                     handler: () {
-                      Navigator.of(context).pushNamed(AboutScreen.routeName);
+
+                      Get.to(AboutScreen());
+                    //  Navigator.of(context).pushNamed(AboutScreen.routeName);
                     },
                   ),
                   SizedBox(
-                    height: 10,
+                    height: 100,
                   ),
+
+
+                  SizedBox(
+                    height: 50,
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      child: Text("Log out"),
+                    ),
+                  )
                 ]),
               ),
             ),
           ),
-          Positioned(
-            bottom: 0,
-            left: 0,
-            child: CustomNavBar(
-              more: true,
-            ),
-          )
+          // Positioned(
+          //   bottom: 0,
+          //   left: 0,
+          //   child: CustomNavBar(
+          //     more: true,
+          //   ),
+          // )
         ],
       ),
     );
@@ -139,7 +158,7 @@ class MoreCard extends StatelessWidget {
     return GestureDetector(
       onTap: _handler,
       child: Container(
-        height: 70,
+        height: 60,
         width: double.infinity,
         child: Stack(
           children: [
@@ -159,13 +178,16 @@ class MoreCard extends StatelessWidget {
               child: Row(
                 children: [
                   Container(
-                      width: 50,
-                      height: 50,
+                      width: 30,
+                      height: 30,
                       decoration: ShapeDecoration(
                         shape: CircleBorder(),
                         color: AppColor.placeholder,
                       ),
-                      child: _image),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: _image,
+                      )),
                   SizedBox(
                     width: 10,
                   ),
