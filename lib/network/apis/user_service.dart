@@ -42,7 +42,7 @@ class UserServices {
     //   "email": "kavindu@gmail.com",
     //   "password":"12345678"
     // });
-    var body = jsonEncode({ 'email': 'kavindu@gmail.com','password': '12345678' });
+    var body = jsonEncode({ 'email': textEmail,'password': textPassword });
 
     try {
       var response = await http.post(Uri.parse(auth),

@@ -74,7 +74,7 @@ class LoginScreenVM extends BaseVM {
     // textEmailText = "customer@sample.com";
     // textPasswordText = "12345678";
 
-   // showIndicator();
+   showIndicator();
 
     var response =
     await UserServices.authentication(textEmailText, textPasswordText);
