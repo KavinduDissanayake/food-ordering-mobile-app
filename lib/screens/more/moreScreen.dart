@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:foodapp/const/colors.dart';
 import 'package:foodapp/screens/aboutScreen.dart';
 import 'package:foodapp/screens/inboxScreen.dart';
-import 'package:foodapp/screens/login/more/menu_screen_vm.dart';
+import 'package:foodapp/screens/more/menu_screen_vm.dart';
 import 'package:foodapp/screens/myOrderScreen.dart';
 import 'package:foodapp/screens/notificationScreen.dart';
 import 'package:foodapp/screens/paymentScreen.dart';

@@ -80,4 +80,6 @@ class Res {
   static const String visa2 = "assets/images/real/visa2.png";
   static const String western = "assets/images/real/western.png";
   static const String western2 = "assets/images/real/western2.jpg";
+  static const String mainLogo = "assets/images/logo_main.jpg";
+
 }

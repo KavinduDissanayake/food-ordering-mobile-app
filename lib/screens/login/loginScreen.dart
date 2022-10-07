@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
 import '../../const/colors.dart';
+import '../../res.dart';
 import '../forgetPwScreen.dart';
 import '../signUpScreen.dart';
 import '../../utils/helper.dart';
@@ -96,19 +97,20 @@ class WebLeftViewWidget extends StatelessWidget {
         children: [
           const Spacer(),
           Container(
-            height: Helper.getScreenHeight(context) / 8,
-            width: Helper.getScreenWidth(context) / 8,
+            height: Helper.getScreenWidth(context) / 9,
+            width: Helper.getScreenWidth(context) / 9,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
               color: Colors.white,
             ),
             margin: EdgeInsets.all(25.0),
             child: Image.asset(
-              Helper.getAssetName("MealMonkeyLogo.png", "virtual"),
+              fit: BoxFit.fill,
+              Res.mainLogo,
             ),
           ),
           Text(
-            "App Name",
+            "FoodOrder",
             style: Helper.getTheme(context)
                 .headline6!
                 .copyWith(color: Colors.white),
@@ -117,7 +119,7 @@ class WebLeftViewWidget extends StatelessWidget {
             height: 20,
           ),
           Text(
-            "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.",
+            "FoodOrder is operational in more than 1000+ major cities around the world. Their market dominance means a wide range of restaurants are willing to work with them. This guarantees plenty of options for consumers, creating a positive feedback loop for growth",
             style: Helper.getTheme(context)
                 .bodyMedium!
                 .copyWith(color: Colors.white),

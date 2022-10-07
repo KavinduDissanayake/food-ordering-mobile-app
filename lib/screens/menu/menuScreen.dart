@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:foodapp/const/colors.dart';
 import 'package:foodapp/screens/dessertScreen.dart';
-import 'package:foodapp/screens/login/more/menu_screen_vm.dart';
+import 'package:foodapp/screens/more/menu_screen_vm.dart';
 import 'package:foodapp/utils/helper.dart';
 import 'package:foodapp/widgets/searchBar.dart';
 import 'package:get/get.dart';

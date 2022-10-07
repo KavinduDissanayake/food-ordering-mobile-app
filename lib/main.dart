@@ -9,7 +9,7 @@ import 'package:foodapp/screens/intro/introScreen.dart';
 import 'package:foodapp/screens/intro/landingScreen.dart';
 import 'package:foodapp/screens/login/loginScreen.dart';
 import 'package:foodapp/screens/menu/menuScreen.dart';
-import 'package:foodapp/screens/login/more/moreScreen.dart';
+import 'package:foodapp/screens/more/moreScreen.dart';
 import 'package:foodapp/screens/offerScreen.dart';
 import 'package:foodapp/screens/profileScreen.dart';
 import 'package:foodapp/screens/signUpScreen.dart';

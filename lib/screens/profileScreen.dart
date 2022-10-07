@@ -107,28 +107,21 @@ class ProfileScreen extends StatelessWidget {
                       ),
                       CustomFormImput(
                         label: "Name",
-                        value: "Emilia Clarke",
+                        value: "Kavindu Dissanayake",
                       ),
                       SizedBox(
                         height: 20,
                       ),
                       CustomFormImput(
                         label: "Email",
-                        value: "emiliaclarke@email.com",
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      CustomFormImput(
-                        label: "Mobile No",
-                        value: "emiliaclarke@email.com",
+                        value: "kavindu@email.com",
                       ),
                       SizedBox(
                         height: 20,
                       ),
                       CustomFormImput(
                         label: "Address",
-                        value: "No 23, 6th Lane, Colombo 03",
+                        value: "No 05, behind the telecom,Embilipitya",
                       ),
                       SizedBox(
                         height: 20,
